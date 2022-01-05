@@ -11,7 +11,7 @@ export default class RestaurantsController {
         } else if (req.query.zipcode) {
             filters.zipcode = req.query.zipcode
         } else if (req.query.name) {
-            filters.name - req.query.name
+            filters.name = req.query.name
         }
 
         const { restaurantsList, totalNumRestaurants } = await RestaurantsDAO.getRestaurants({
