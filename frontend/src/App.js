@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AddReview from "./components/add-review";
@@ -32,9 +32,9 @@ function App() {
           </li>
           <li className="nav-item">
             { user ? (
-              <a onClick={logout} className="nav-link" style={{cursor: 'pointer'}}>
+              <button onClick={logout} className="nav-link" style={{cursor: 'pointer'}}>
                 Logout {user.name}
-              </a>
+              </button>
             ) : (
               <Link to={"/login"} className="nav-link">
                 Login
@@ -45,7 +45,7 @@ function App() {
       </nav>
 
       <div className="container mt-3">
-        <Switch>
+        <Routes>
           <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
           <Route
             path="/restaurants/:id/review"
@@ -65,7 +65,7 @@ function App() {
               <Login {...props} login={login} />
             )}
           />
-        </Switch>
+        </Routes>
       </div>
     </div>
   );
